@@ -9,8 +9,8 @@ Plugin ini  berfokus pada manajemen analitik internal mengenai penggunaan LMS se
 
 ## Panduan Instalasi Singkat
 
-1. **Struktur Folder:** Letakkan folder pada direktori Moodle `local/lmspanel_ebi/`.
-2. **Penyelesaian Instalasi:** Akses *Site Administration > Notifications* pada Moodle sebagai Administrator untuk pendaftaran plugin.
+1. **Download Plugin:** Download repository ini, simpan dalam bentuk zip`.
+2. **Penyelesaian Instalasi:** Akses *Site Administration > Plugins > Install Plugins* pada Moodle sebagai Administrator upload file zip tersebut.
 
 ## 4. Hal yang Harus Diperhatikan
 
