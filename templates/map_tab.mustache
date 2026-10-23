@@ -1,0 +1,90 @@
+<div class="container-fluid py-3">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h3>Peta Kurikulum & Prasyarat Course (EBI)</h3>
+            <p class="text-muted">Diagram interaktif alur belajar perusahaan. Anda dapat menggeser kotak course (*drag & drop*) dan memperbesar tampilan (*zoom*).</p>
+        </div>
+    </div>
+
+    <!-- Kotak Canvas Diagram -->
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div id="ebi-course-map" style="width: 100%; height: 650px; background-color: #f8f9fa;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Load Vis.js Library via CDN -->
+<script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    // Data Nodes dan Edges yang dikirim dari PHP
+    var rawNodes = {{{nodes_json}}};
+    var rawEdges = {{{edges_json}}};
+
+    var nodesArray = [];
+    var edgesArray = [];
+
+    // Format data nodes untuk Vis.js
+    rawNodes.forEach(function(c) {
+        var labelText = c.course_name + "\n[ID: " + c.course_id + "]";
+        if (c.course_tags) {
+            labelText += "\n🏷️ Tags: " + c.course_tags;
+        }
+
+        nodesArray.push({
+            id: parseInt(c.course_id),
+            label: labelText,
+            shape: 'box',
+            margin: 12,
+            font: { multi: true, size: 14, align: 'left' },
+            color: { background: '#ffffff', border: '#0f6cbf', highlight: { background: '#e3f2fd', border: '#0d47a1' } }
+        });
+    });
+
+    // Format data edges untuk Vis.js
+    rawEdges.forEach(function(e) {
+        edgesArray.push({
+            from: parseInt(e.source_course_id),
+            to: parseInt(e.target_course_id),
+            arrows: 'to',
+            color: { color: '#848484', highlight: '#0f6cbf' },
+            width: 2,
+            smooth: { type: 'cubicBezier', roundness: 0.2 }
+        });
+    });
+
+    var container = document.getElementById('ebi-course-map');
+    var data = {
+        nodes: new vis.DataSet(nodesArray),
+        edges: new vis.DataSet(edgesArray)
+    };
+
+    var options = {
+        nodes: {
+            shadow: true
+        },
+        edges: {
+            shadow: false
+        },
+        interaction: {
+            dragNodes: true, // FITUR UTAMA: Kotak bisa digeser bebas
+            hover: true,
+            zoomView: true
+        },
+        physics: {
+            // Mengatur tata letak awal secara hierarkis agar rapi sebelum digeser manual
+            hierarchical: {
+                enabled: true,
+                direction: 'LR', // Left to Right (Alur kiri ke kanan)
+                sortMethod: 'hubsize',
+                levelSeparation: 150,
+                nodeSpacing: 100
+            }
+        }
+    };
+
+    var network = new vis.Network(container, data, options);
+});
+</script>

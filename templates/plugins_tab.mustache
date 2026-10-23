@@ -1,0 +1,34 @@
+<div class="container-fluid py-3">
+    <h3>Pemeriksaan Status Plugin & Komponen LMS (EBI)</h3>
+    <p class="text-muted">Panel ini memvalidasi ketersediaan modul yang dibutuhkan oleh sistem <code>local_lmspanel_ebi</code>.</p>
+
+    <table class="generaltable table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 15%; text-align: center;">Status</th>
+                <th style="width: 25%;">Nama Plugin</th>
+                <th style="width: 25%;">Komponen (Frankenstyle)</th>
+                <th style="width: 15%;">Tipe</th>
+                <th style="width: 20%;">Versi / Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#plugins}}
+            <tr>
+                <td style="text-align: center; vertical-align: middle;">
+                    {{#is_ok}}
+                        <span class="badge badge-success" style="background-color: #28a745; color: white; padding: 5px 10px; border-radius: 4px;">Aktif</span>
+                    {{/is_ok}}
+                    {{^is_ok}}
+                        <span class="badge badge-danger" style="background-color: #dc3545; color: white; padding: 5px 10px; border-radius: 4px;">Belum Aktif</span>
+                    {{/is_ok}}
+                </td>
+                <td><strong>{{name}}</strong><br><small class="text-muted">{{description}}</small></td>
+                <td><code>{{component}}</code></td>
+                <td>{{type}}</td>
+                <td>{{version}}</td>
+            </tr>
+            {{/plugins}}
+        </tbody>
+    </table>
+</div>
