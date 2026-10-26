@@ -6,7 +6,7 @@ global $DB, $USER, $PAGE, $OUTPUT;
 // 1. Proteksi Akses & Hak Akses
 require_login();
 $context = context_system::instance();
-if (!is_siteadmin() && !has_capability('moodle/site:viewreports', $context)) {
+if (!is_siteadmin() && !has_capability('local/lmspanel_ebi:view', $context)) {
     throw new moodle_exception('nopermissiontoaccesspage', 'error');
 }
 

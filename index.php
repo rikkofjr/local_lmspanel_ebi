@@ -36,11 +36,11 @@ $all_healthy = ($active_count === $total_plugins);
             <div class="card-body d-flex justify-content-between align-items-center py-4">
                 <div>
                     <h3 class="font-weight-bold text-dark mb-1"><i class="fa fa-shield-alt mr-2 text-primary"></i> EBI LMS Control Panel</h3>
-                    <p class="text-muted mb-0">Status kesehatan sistem dan prasyarat modul perusahaan. Pastikan seluruh plugin inti aktif sebelum mengakses panel utama.</p>
+                    <p class="text-muted mb-0">Status kesiapan prasyarat plugin pendukung. Pastikan seluruh plugin inti aktif sebelum mengakses panel utama.</p>
                 </div>
                 <div>
                     <?php if ($all_healthy): ?>
-                        <a href="panel.php?tab=map" class="btn btn-primary btn-lg shadow-sm">
+                        <a href="panel.php?tab=map" id="btn-enter-panel" class="btn btn-primary btn-lg shadow-sm">
                             <i class="fa fa-arrow-right mr-2"></i> Masuk Panel
                         </a>
                     <?php else: ?>
@@ -64,7 +64,7 @@ $all_healthy = ($active_count === $total_plugins);
                     Status: <?php echo $active_count; ?> / <?php echo $total_plugins; ?> Aktif
                 </span>
             </div>
-            <div class="card-body">
+            <div class="card-body" id="health-check-card">
                 <table class="generaltable table table-striped table-bordered mb-0">
                     <thead>
                         <tr>

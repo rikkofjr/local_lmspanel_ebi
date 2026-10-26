@@ -1,0 +1,43 @@
+{
+  "name": "EBI LMS Panel - Pengenalan LMS Panel",
+  "description": "Panduan awal pengenalan halaman awal EBI LMS Panel.",
+  "pathmatch": "/local/lmspanel_ebi/index.php%",
+  "enabled": "1",
+  "sortorder": "1",
+  "endtourlabel": "",
+  "configdata": "{\"placement\":\"bottom\",\"orphan\":\"0\",\"backdrop\":\"1\",\"reflex\":\"0\",\"filtervalues\":{\"accessdate\":{\"filter_accessdate\":\"tool_usertours_accountcreation\",\"filter_accessdate_range\":0,\"filter_accessdate_enabled\":\"0\"},\"category\":[],\"exclude_category\":[],\"course_operator\":[\"all\"],\"course\":[],\"courseformat\":[],\"role\":[],\"theme\":[],\"cssselector\":[]},\"majorupdatetime\":1792982366,\"showtourwhen\":1}",
+  "displaystepnumbers": true,
+  "version": "2025100600",
+  "steps": [
+    {
+      "title": "Selamat Datang di EBI LMS Panel",
+      "content": "Pantau LMS anda secara keseluruhan.",
+      "contentformat": "0",
+      "targettype": "2",
+      "targetvalue": "",
+      "sortorder": "0",
+      "configdata": "{\"placement\":\"center\"}",
+      "files": []
+    },
+    {
+      "title": "Pemeriksaan Ketersediaan Plugin",
+      "content": "Bagian ini menampilkan status ketersediaan plugin pendukung (seperti Course Prerequisite, Daily Practice, dll) agar fitur berjalan optimal. jika belum ada silahkan download sesuai dengan link yang tersedia",
+      "contentformat": "0",
+      "targettype": "0",
+      "targetvalue": "#health-check-card",
+      "sortorder": "1",
+      "configdata": "{\"placement\":\"bottom\"}",
+      "files": []
+    },
+    {
+      "title": "Akses Panel Kendali Utama",
+      "content": "Klik tombol ini untuk masuk ke Launcher Hub dan mengakses seluruh modul seperti Course Mapping, Daily Practice, dan IDP Dashboard.",
+      "contentformat": "0",
+      "targettype": "0",
+      "targetvalue": "#btn-enter-panel",
+      "sortorder": "2",
+      "configdata": "{\"placement\":\"top\"}",
+      "files": []
+    }
+  ]
+}

@@ -32,7 +32,7 @@ $PAGE->navbar->add('Control Panel Hub');
                 </div>
                 <div>
                     <a href="index.php" class="btn btn-outline-secondary">
-                        <i class="fa fa-heartbeat mr-1"></i> Cek Kesehatan Plugin
+                        <i class="fa fa-heartbeat mr-1"></i> Cek Ketersediaan Plugin
                     </a>
                 </div>
             </div>
@@ -41,7 +41,7 @@ $PAGE->navbar->add('Control Panel Hub');
 </div>
 
 <!-- DAFTAR KARTU MENU PANEL (Akan bertambah seiring waktu) -->
-<div class="row">
+<div class="row" id="panel-tersedia">
     <!-- Menu 1: Course & Prerequisite Mapping -->
     <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm border-0">

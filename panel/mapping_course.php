@@ -7,7 +7,7 @@ global $DB, $USER, $PAGE, $OUTPUT;
 // Proteksi Akses
 require_login();
 $context = context_system::instance();
-if (!is_siteadmin() && !has_capability('moodle/site:viewreports', $context)) {
+if (!is_siteadmin() && !has_capability('local/lmspanel_ebi:view', $context)) {
     throw new moodle_exception('nopermissiontoaccesspage', 'error');
 }
 
@@ -31,7 +31,7 @@ $edges = \local_lmspanel_ebi\helper::get_course_edges();
     <div class="col-md-12">
         <div class="d-flex justify-content-between align-items-center flex-wrap">
             <div>
-                <h4 class="font-weight-bold text-dark mb-1"><i class="fa fa-sitemap mr-2 text-primary"></i> Peta Kurikulum & Prasyarat Course</h4>
+                <h4 class="font-weight-bold text-dark mb-1"><i class="fa fa-sitemap mr-2 text-primary"></i> Peta Prasyarat Course</h4>
                 <p class="text-muted mb-0" style="font-size: 13px;">Diagram hirarki interaktif dengan fitur pencarian dan mode layar penuh.</p>
             </div>
             <div class="mt-2 mt-md-0">
